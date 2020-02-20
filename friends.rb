@@ -35,6 +35,26 @@ def check_money_sum(people)
 end
 
 def lending(person1, person2, amount)
-  result1 = person1[:monies] - amount
-  result2 = person2[:monies] + amount
+  result1 = person1[:monies] -= amount
+  result2 = person2[:monies] += amount
+end
+
+def favourite_foods(people)
+  favourite = [ ]
+  for person in people
+  favourite.concat(person[:favourites][:snacks])
+  #     favourite_foods.concat(person[:favourites][:snacks])
+
+  end
+  return favourite
+end
+
+def no_friends(people)
+  none = []
+  for person in people
+    if person[:friends].length == 0
+      none.push(person)
+    end
+  end
+  return none
 end
